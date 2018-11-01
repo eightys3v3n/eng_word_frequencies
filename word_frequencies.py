@@ -3,7 +3,6 @@ import shutil, os, json
 
 __author__ = "Terrence Plunkett"
 
-
 class WordFrequencies:
 	""" Stores a list of words and the number of times the words have been added to the object.
 	"""
@@ -82,7 +81,7 @@ def main():
 	"""
 	global words
 
-	files_path = "D:\\Downloads" # folder to load source texts from.
+	files_path = "source_texts" # folder to load source texts from.
 	paths = os.listdir(files_path)
 	files = []
 	for p in paths:
@@ -98,6 +97,7 @@ def main():
 		source_whole_file(words, file)
 
 	print("Counted {} words, {} of which are unique.".format(words.num_words_counted(), words.num_unique_words()))
+	words.save("word_frequencies.json")
 
 
 if __name__ == '__main__':
